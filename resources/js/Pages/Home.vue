@@ -1,11 +1,20 @@
 <template>
-  <h1>Testing, {{ testing }}</h1>
+  <div>
+    <Link href="/login">Login</Link>
+    <h1>Testing, {{ testing }}</h1>
+  </div>
 </template>
 
 <script>
+  import { Link } from '@inertiajs/inertia-vue3'
+
   export default {
     props: {
       testing: String
+    },
+
+    components: {
+      Link
     }
   }
 </script>

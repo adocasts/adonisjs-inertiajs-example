@@ -29,3 +29,7 @@ Route.get('/home', async ({ inertia }) => {
     testing: 'this is a test'
   })
 })
+
+Route.get('/login', async ({ inertia }) => {
+  return inertia.render('Auth/Login')
+})
