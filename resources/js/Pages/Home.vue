@@ -2,6 +2,8 @@
   <div>
     <Link href="/login">Login</Link>
     <h1 class="text-red-500">Testing, {{ testing }}</h1>
+    <n-button>Testing</n-button>
+    <n-input :value="testing"></n-input>
   </div>
 </template>
 
@@ -14,7 +16,7 @@
     },
 
     components: {
-      Link
+      Link,
     }
   }
 </script>
