@@ -1,7 +1,7 @@
 <template>
   <div>
     <Link href="/login">Login</Link>
-    <h1>Testing, {{ testing }}</h1>
+    <h1 class="text-red-500">Testing, {{ testing }}</h1>
   </div>
 </template>
 
