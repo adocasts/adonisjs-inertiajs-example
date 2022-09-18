@@ -1,6 +1,12 @@
 <template>
   <div>
-    <h1>Auth Layout</h1>
-    <slot></slot>
+    <Header />
+    <main class="px-6">
+      <slot></slot>
+    </main>
   </div>
 </template>
+
+<script setup>
+  import Header from '@/components/Header.vue'
+</script>

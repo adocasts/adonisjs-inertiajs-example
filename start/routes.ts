@@ -24,12 +24,20 @@ Route.get('/', async ({ view }) => {
   return view.render('welcome')
 })
 
-Route.get('/home', async ({ inertia }) => {
-  return inertia.render('Home', { 
-    testing: 'this is a test'
-  })
-})
+Route.group(() => {
 
-Route.get('/login', async ({ inertia }) => {
-  return inertia.render('Auth/Login')
-})
+  Route.get('/', async ({ inertia }) => {
+    return inertia.render('App', { 
+      testing: 'this is a test'
+    })
+  })
+  
+  Route.get('/login', async ({ inertia }) => {
+    return inertia.render('Auth/Login')
+  })
+
+  Route.get('/register', async ({ inertia }) => {
+    return inertia.render('Auth/Register')
+  })
+
+}).prefix('app')
