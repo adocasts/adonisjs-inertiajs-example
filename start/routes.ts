@@ -30,14 +30,30 @@ Route.group(() => {
     return inertia.render('App', { 
       testing: 'this is a test'
     })
-  })
+  }).as('index')
   
   Route.get('/login', async ({ inertia }) => {
     return inertia.render('Auth/Login')
-  })
+  }).as('login.show')
+
+  Route.post('/login', async ({ request, response }) => {
+    console.log({
+      loginBody: request.body()
+    })
+
+    return response.redirect().toRoute('app.index')
+  }).as('login.store')
 
   Route.get('/register', async ({ inertia }) => {
     return inertia.render('Auth/Register')
-  })
+  }).as('register.show')
 
-}).prefix('app')
+  Route.post('/register', async ({ request, response }) => {
+    console.log({
+      registerBody: request.body()
+    })
+
+    return response.redirect().toRoute('app.index')
+  }).as('register.store')
+
+}).prefix('app').as('app')
