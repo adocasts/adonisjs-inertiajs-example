@@ -19,6 +19,7 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+import AuthValidator from 'App/Validators/AuthValidator'
 
 Route.get('/', async ({ view }) => {
   return view.render('welcome')
@@ -41,6 +42,10 @@ Route.group(() => {
       loginBody: request.body()
     })
 
+    const data = await request.validate(AuthValidator)
+
+    console.log({ data })
+
     return response.redirect().toRoute('app.index')
   }).as('login.store')
 
@@ -52,6 +57,10 @@ Route.group(() => {
     console.log({
       registerBody: request.body()
     })
+
+    const data = await request.validate(AuthValidator)
+
+    console.log({ data })
 
     return response.redirect().toRoute('app.index')
   }).as('register.store')
